@@ -1,4 +1,4 @@
-package pointclasses;
+package ru.ssau.tk.pointclasses;
 
 public class Point {
     public final double X;

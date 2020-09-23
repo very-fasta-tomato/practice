@@ -1,4 +1,4 @@
-package personclasses;
+package ru.ssau.tk.personclasses;
 
 public class Person {
     private String firstName;
