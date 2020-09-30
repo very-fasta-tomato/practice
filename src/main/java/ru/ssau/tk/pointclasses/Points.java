@@ -26,4 +26,7 @@ public class Points {
     public static Point enlarge(Point a, double b) {
         return new Point(a.X * b, a.Y * b, a.Z * b);
     }
+    static double length (Point a){
+        return a.length();
+    }
 }
