@@ -13,7 +13,4 @@ public class Point {
     double length (){
         return Math.sqrt(Math.pow(X,2) + Math.pow(Y,2) + Math.pow(Z,2));
     }
-    Point point1 = new Point(0,0,0);
-    Point point2 = new Point(1, 1, 1);
-    Point point3 = new Point(1, 2, 3);
 }
