@@ -16,4 +16,37 @@ public class PersonTest {
         assertEquals(person1.getFirstName(),"Wasd");
         assertEquals(person1.getLastName(),"Qwerty");
     }
+
+    @Test
+    public void testGetFirstName() {
+        Person somePerson = new Person();
+        somePerson.setFirstName("Gaius");
+        assertEquals(somePerson.getFirstName(), "Gaius");
+
+        somePerson.setFirstName("William");
+        assertNotEquals(somePerson.getFirstName(), "Gaius");
+        assertEquals(somePerson.getFirstName(), "William");
+    }
+
+    @Test
+    public void testGetLastName() {
+        Person somePerson = new Person();
+        somePerson.setLastName("Iulius");
+        assertEquals(somePerson.getLastName(), "Iulius");
+
+        somePerson.setLastName(null);
+        assertNotEquals(somePerson.getLastName(), "Gaius");
+        assertEquals(somePerson.getLastName(), null);
+    }
+
+    @Test
+    public void testGetPassportId() {
+        Person somePerson = new Person();
+        assertNotEquals(somePerson.getPassportId(), 44);
+        somePerson.setPassportId(44);
+
+        somePerson.setPassportId(1066);
+        assertNotEquals(somePerson.getPassportId(), 1036);
+        assertEquals(somePerson.getPassportId(), 1066);
+    }
 }
