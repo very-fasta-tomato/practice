@@ -1,6 +1,6 @@
 package ru.ssau.tk.pointclasses;
 
-public class NamedPoint extends Point {
+public class NamedPoint extends Point implements Resettable {
     private String name;
 
     public void setName(String name) {
@@ -22,5 +22,10 @@ public class NamedPoint extends Point {
 
     public NamedPoint() {
         this(0, 0, 0, "Origin");
+    }
+
+    @Override
+    public void reset() {
+        name = "Absent";
     }
 }
