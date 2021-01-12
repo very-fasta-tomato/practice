@@ -1,6 +1,6 @@
 package ru.ssau.tk.arraysmetods;
 
-public class task2_5 {
+public class Task2_5 {
     public static int[] setNumber(int size) {
         int[] arr = new int[size];
         arr[0] = 0;
