@@ -12,9 +12,9 @@ public class PersonTest {
         person1.setFirstName("Wasd");
         person1.setLastName("Qwerty");
         person1.setPassportId(1234);
-        assertEquals(person1.getPassportId(),1234,0.001);
-        assertEquals(person1.getFirstName(),"Wasd");
-        assertEquals(person1.getLastName(),"Qwerty");
+        assertEquals(person1.getPassportId(), 1234, 0.001);
+        assertEquals(person1.getFirstName(), "Wasd");
+        assertEquals(person1.getLastName(), "Qwerty");
     }
 
     @Test
@@ -48,5 +48,14 @@ public class PersonTest {
         somePerson.setPassportId(1066);
         assertNotEquals(somePerson.getPassportId(), 1036);
         assertEquals(somePerson.getPassportId(), 1066);
+    }
+
+    @Test
+    public void testGender() {
+        Person somePerson = new Person("Fname", "Lname", 111, Gender.MALE);
+        assertEquals(somePerson.getGender(), Gender.MALE);
+        somePerson.setGender(Gender.FEMALE);
+        assertEquals(somePerson.getGender(), Gender.FEMALE);
+        assertNotEquals(somePerson.getGender(), Gender.MALE);
     }
 }

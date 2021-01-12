@@ -4,21 +4,40 @@ public class Person {
     private String firstName;
     private String lastName;
     int passportId;
+    Gender gender;
 
-    public Person(){
+    public Person() {
 
     }
-    public Person(String firstName, String lastName){
+
+    public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    public Person(int passportId){
+
+    public Person(int passportId) {
         this.passportId = passportId;
     }
-    public Person(String firstName, String lastName, int passportId){
+
+    public Person(String firstName, String lastName, int passportId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.passportId = passportId;
+    }
+
+    public Person(String firstName, String lastName, int passportId, Gender gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.passportId = passportId;
+        this.gender = gender;
+    }
+
+    void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    Gender getGender() {
+        return gender;
     }
 
     public String getFirstName() {
@@ -45,7 +64,7 @@ public class Person {
         this.passportId = passportId;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Person person1 = new Person();
         person1.setFirstName("Wasd");
         person1.setLastName("Qwerty");
@@ -56,7 +75,7 @@ public class Person {
         person2.setLastName("Tfgh");
         person2.setPassportId(5678);
 
-        Person person3 = new Person("Wasd","Qwerty");
+        Person person3 = new Person("Wasd", "Qwerty");
         Person person4 = new Person(1234);
         Person person5 = new Person("Wasd", "Qwerty", 1234);
     }
