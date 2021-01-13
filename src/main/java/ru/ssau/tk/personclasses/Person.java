@@ -64,6 +64,11 @@ public class Person {
         this.passportId = passportId;
     }
 
+    @Override
+    public String toString() {
+        return firstName + (firstName.isEmpty() || lastName.isEmpty() ? "" : " ") + lastName;
+    }
+
     public static void main(String[] args) {
         Person person1 = new Person();
         person1.setFirstName("Wasd");

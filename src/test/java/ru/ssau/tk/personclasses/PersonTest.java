@@ -58,4 +58,13 @@ public class PersonTest {
         assertEquals(somePerson.getGender(), Gender.FEMALE);
         assertNotEquals(somePerson.getGender(), Gender.MALE);
     }
+
+    @Test
+    public void testToString() {
+        Person Person = new Person("Wasd", "Qwerty", 818182);
+        assertEquals(Person.toString(), "Wasd Qwerty");
+        Person.setFirstName("");
+        Person.setLastName("");
+        assertEquals(Person.toString(), "");
+    }
 }
