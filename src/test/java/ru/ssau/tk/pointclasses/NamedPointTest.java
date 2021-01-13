@@ -28,4 +28,10 @@ public class NamedPointTest {
         namedPoint.reset();
         assertEquals(namedPoint.getName(), "Absent");
     }
+
+    @Test
+    public void testTestToString() {
+        assertEquals(new NamedPoint(2., 4., 3., "x").toString(), "x: [2.0, 4.0, 3.0]");
+        assertEquals(new NamedPoint(-0, 0, 5).toString(), "[0.0, 0.0, 5.0]");
+    }
 }
