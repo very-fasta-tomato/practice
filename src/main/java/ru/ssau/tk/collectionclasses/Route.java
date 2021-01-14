@@ -7,7 +7,7 @@ public final class Route implements Iterable<Location> {
     private final List<Location> locations;
 
     public Route() {
-        this.locations = new ArrayList<>(Collections.emptyList());
+        this.locations = new ArrayList<>();
     }
 
     public List<Location> getLocations() {
