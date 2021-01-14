@@ -4,8 +4,11 @@ import java.util.*;
 
 public class Route {
 
-    private ArrayList<Location> locations = new ArrayList<>();
+    private List<Location> locations;
 
+    public Route() {
+        this.locations = new ArrayList<>(Collections.emptyList());
+    }
 
     public List<Location> getLocations() {
         return locations;
@@ -16,7 +19,7 @@ public class Route {
     }
 
     public void addLocation(int index, Location location) {
-        locations.add(index, location);
+        this.locations.add(index, location);
     }
 
     public void removeLocation(int index) {
