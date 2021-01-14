@@ -2,7 +2,7 @@ package ru.ssau.tk.collectionclasses;
 
 import java.util.*;
 
-public class Route {
+public class Route implements Iterable<Location> {
 
     private List<Location> locations;
 
@@ -24,5 +24,36 @@ public class Route {
 
     public void removeLocation(int index) {
         this.locations.remove(index);
+    }
+
+    public Location getFirstLocation() {
+        return locations.get(0);
+    }
+
+    public Location getLastLocation() {
+        return locations.get(locations.size() - 1);
+    }
+
+    @Override
+    public Iterator<Location> iterator() {
+        return new Iterator<>() {
+            private Location location = getFirstLocation();
+            private int count = 0;
+
+            @Override
+            public boolean hasNext() {
+                return count < getLocations().size();
+            }
+
+            @Override
+            public Location next() {
+                if (hasNext()) {
+                    location = locations.get(count++);
+                    return location;
+                } else {
+                    throw new NoSuchElementException();
+                }
+            }
+        };
     }
 }

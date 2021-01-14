@@ -46,4 +46,41 @@ public class RouteTest {
         testRoute.removeLocation(1);
         assertEquals(testRoute.getLocations(), new ArrayList<>(Arrays.asList(village)));
     }
+
+    @Test
+    public void testGetFirstLocation() {
+        testRoute = new Route();
+        fillRoute();
+        assertEquals(testRoute.getFirstLocation(), village);
+        testRoute.addLocation(0, depot);
+        assertEquals(testRoute.getFirstLocation(), depot);
+    }
+
+    @Test
+    public void testGetLastLocation() {
+        testRoute = new Route();
+        fillRoute();
+        assertEquals(testRoute.getLastLocation(), city);
+        testRoute.addLocation(depot);
+        assertEquals(testRoute.getLastLocation(), depot);
+    }
+
+    @Test
+    public void testIterator() {
+        testRoute = new Route();
+        village.setId(0);
+        city.setId(1);
+        depot.setId(2);
+        warehouse.setId(3);
+        testRoute.addLocation(village);
+        testRoute.addLocation(city);
+        testRoute.addLocation(depot);
+        testRoute.addLocation(warehouse);
+        int count = 0;
+        for (Location location : testRoute) {
+            assertEquals(location.getId(), count);
+            count++;
+        }
+        assertEquals(count, 4);
+    }
 }
