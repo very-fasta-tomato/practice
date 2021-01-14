@@ -98,4 +98,49 @@ public class RouteTest {
         }
         assertEquals(count, 4);
     }
+
+    @Test
+    public void testEquals() {
+        testRoute = new Route();
+        Route equalRoute = new Route();
+        Route notEqualRoute = new Route();
+        Location village1 = new Settlement();
+        Location village2 = new Settlement();
+        Location newVillage1 = new Settlement();
+        Location depot = new Waypoint();
+        Location warehouse = new Waypoint();
+        Location depotInVillage = new Waypoint();
+        village1.setId(1);
+        village2.setId(2);
+        newVillage1.setId(1);
+        depot.setId(3);
+        warehouse.setId(4);
+        depotInVillage.setId(1);
+
+        testRoute.addLocation(village1);
+        testRoute.addLocation(village2);
+        testRoute.addLocation(depot);
+        testRoute.addLocation(warehouse);
+
+        equalRoute.addLocation(newVillage1);
+        equalRoute.addLocation(village2);
+        equalRoute.addLocation(depot);
+        equalRoute.addLocation(warehouse);
+
+        notEqualRoute.addLocation(village1);
+        notEqualRoute.addLocation(village1);
+        notEqualRoute.addLocation(depot);
+        notEqualRoute.addLocation(warehouse);
+
+        assertTrue(testRoute.equals(equalRoute));
+        assertFalse(testRoute.equals(notEqualRoute));
+
+        equalRoute.removeLocation(warehouse);
+        assertFalse(testRoute.equals(equalRoute));
+
+        equalRoute.addLocation(warehouse);
+        equalRoute.removeLocation(0);
+        equalRoute.addLocation(0, depotInVillage);
+        assertFalse(testRoute.equals(equalRoute));
+    }
 }
