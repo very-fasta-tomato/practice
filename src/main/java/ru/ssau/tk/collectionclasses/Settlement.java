@@ -23,4 +23,9 @@ public class Settlement extends Location {
     public void setType(SettlementType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Settlement. Type: " + type + "; name: " + getName() + "; latitude: " + getLatitude() + "; longitude: " + getLongitude();
+    }
 }
