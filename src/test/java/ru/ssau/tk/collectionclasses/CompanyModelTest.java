@@ -242,4 +242,17 @@ public class CompanyModelTest {
         CompanyModel.sort(settlements, new EquatorComparator());
         assertEquals(settlements, new ArrayList<>(Arrays.asList(village1, village2, city1, city2)));
     }
+
+    @Test
+    public void testSortByName() {
+        fillModels();
+        List<Location> locations = new ArrayList<>(Arrays.asList(loneDepot, village2, village1, city1Depot,
+                city2Warehouse, city2, city1, village1Warehouse, village2Waypoint));
+        CompanyModel.sortByName(locations);
+        assertEquals(locations, new ArrayList<>(Arrays.asList(city1, city1Depot, city2, city2Warehouse,
+                loneDepot, village1, village1Warehouse, village2, village2Waypoint)));
+        List<Settlement> settlements = new ArrayList<>(Arrays.asList(city1, village2, city2, village1));
+        CompanyModel.sortByName(settlements);
+        assertEquals(settlements, new ArrayList<>(Arrays.asList(city1, city2, village1, village2)));
+    }
 }
