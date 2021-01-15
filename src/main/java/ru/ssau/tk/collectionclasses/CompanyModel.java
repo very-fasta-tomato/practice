@@ -80,4 +80,8 @@ public class CompanyModel {
     public void assignRoute(Driver driver, Route route) {
         driverRouteMap.put(driver, route);
     }
+
+    public static void sort(List<Settlement> settlements, Comparator<? super Settlement> comparator) {
+        Collections.sort(settlements, comparator);
+    }
 }
