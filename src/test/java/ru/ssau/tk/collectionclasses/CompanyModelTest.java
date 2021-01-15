@@ -209,5 +209,7 @@ public class CompanyModelTest {
         List<Route> routes = new ArrayList<>(Arrays.asList(route1, route2, route3, route4, route5));
         Collections.sort(routes);
         assertEquals(routes, new ArrayList<>(Arrays.asList(route3, route2, route5, route1, route4)));
+        assertEquals(Collections.min(routes), route3);
+        assertEquals(Collections.max(routes), route4);
     }
 }
