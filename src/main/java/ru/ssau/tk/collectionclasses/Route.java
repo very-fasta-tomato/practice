@@ -1,6 +1,7 @@
 package ru.ssau.tk.collectionclasses;
 
 import java.util.*;
+import java.lang.Math;
 
 public final class Route implements Iterable<Location> {
 
@@ -103,5 +104,17 @@ public final class Route implements Iterable<Location> {
             stringBuilder.append("\n");
         }
         return stringBuilder.toString();
+    }
+
+    public double length() {
+        double length = 0;
+        for (int i = 1; i < locations.size(); i++) {
+            double x1 = locations.get(i - 1).getLatitude();
+            double y1 = locations.get(i - 1).getLongitude();
+            double x2 = locations.get(i).getLatitude();
+            double y2 = locations.get(i).getLongitude();
+            length += Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        }
+        return length;
     }
 }
